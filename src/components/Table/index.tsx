@@ -1,4 +1,3 @@
-import React from "react";
 import { TableProps } from "./types";
 import styles from "./styles.module.scss";
 
@@ -20,7 +19,7 @@ const Table = <T,>({ data, columns }: TableProps<T>) => {
               <td key={col.title}>
                 {typeof col.value === "function"
                   ? col.value(item)
-                  : (item[col.value] as any)}
+                  : item[col.value]}
               </td>
             ))}
           </tr>

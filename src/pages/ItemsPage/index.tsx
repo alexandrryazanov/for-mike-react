@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "../../components/Table";
-import {columns} from "./constansts";
+import { columns } from "./constansts";
+import { CategoryItem } from "./types";
 
 const ItemsPage = () => {
+  const [data, setData] = useState<CategoryItem[]>([]);
 
-  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        "https://api.dev.thedematerialised.com/api/nfts?limit=10&offset=0"
+      );
+      const categories = await res.json();
 
-  // fetch data
+      setData(categories.list);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
