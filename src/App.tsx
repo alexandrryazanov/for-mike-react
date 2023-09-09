@@ -6,7 +6,7 @@ import CategoriesPage from "./pages/CategoriesPage";
 function App() {
   return (
     <div className="App">
-      {/*<ItemsPage />*/}
+      <ItemsPage />
       <CategoriesPage />
     </div>
   );

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 export interface TableProps<T> {
   data: T[];
@@ -7,5 +7,5 @@ export interface TableProps<T> {
 
 export interface ColumnType<T> {
   title: string;
-  value: keyof T | ((item: T) => ReactNode);
+  value: keyof T | (( item: T) => any);
 }
