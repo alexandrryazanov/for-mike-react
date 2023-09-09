@@ -18,9 +18,11 @@ const Table = <T,>({ data, columns }: TableProps<T>) => {
           <tr key={i}>
             {columns.map((col) => (
               <td key={col.title}>
-                {typeof col.value === "function"
-                  ? col.value(item)
-                  : (item[col.value] as any)}
+                <>
+                  {typeof col.value !== "function"
+                    ? item[col.value]
+                    : col.value(item)}
+                </>
               </td>
             ))}
           </tr>
